@@ -10,5 +10,5 @@ Upon clicking, the server will register that it is a GET request for a specific 
 <p>The server will respond with a help message that the programmer either specified (one from the database) or with a new one created by the programmer. 
 The browser will render the message on screeen for the user. </p>
 
-UML Diagram:
-![Alt text](https://ibb.co/V9yc9kz)
+UML Diagram: 
+https://ibb.co/V9yc9kz
