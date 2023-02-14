@@ -11,4 +11,4 @@ Upon clicking, the server will register that it is a GET request for a specific 
 The browser will render the message on screeen for the user. </p>
 
 UML Diagram:
-![Alt text](/Users/hanamilktea/Desktop/Screen Shot 2023-02-13 at 10.03.07 PM.png?raw=true"Title")
+![Alt text](/Users/hanamilktea/Desktop/Screen Shot 2023-02-13 at 10.03.07 PM.png)
