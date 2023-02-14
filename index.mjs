@@ -21,6 +21,10 @@ app.use((err, req, res, next) => {
     res.status(500).send({ error: 'Something went wrong!' }); 
 }); 
 
+app.get('/', (req, res) => {
+    res.render('index', { title: "Help Microservice", start: "Begin with the following routes below:", message: "Routes supported: /add-help to add help messages, /get-all to view all help messages, and /id to get a specific help message."}); 
+})
+
 // Add help messages to the db
 app.post('/add-help', (req, res) => {
     HelpMsgs.createHelpMsg(req.body.helpMsg)
