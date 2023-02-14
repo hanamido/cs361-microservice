@@ -3,12 +3,12 @@ To start the server, download the files and open them in the terminal or in a co
 Then, enter `npm install && npm start` (to install the dependencies and start the app).
 
 <b>To Request Data: </b>
-The user can click a button where they will be taken to the server for this specific port.
-Upon clicking, the server will register that it is a GET request for a specific HELP message. 
+<p>The user can click a button where they will be taken to the server for this specific port.
+Upon clicking, the server will register that it is a GET request for a specific HELP message. </p>
 
 <b>To Receive Data: </b>
-The server will respond with a help message that the programmer either specified (one from the database) or with a new one created by the programmer. 
-The browser will render the message on screeen for the user. 
+<p>The server will respond with a help message that the programmer either specified (one from the database) or with a new one created by the programmer. 
+The browser will render the message on screeen for the user. </p>
 
 UML Diagram:
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/d4787116-d960-443b-8258-987574e291b0" id=".c6wfK9eFlnx"></iframe></div>
+![Alt text](/Users/hanamilktea/Desktop/Screen Shot 2023-02-13 at 10.03.07 PM.png?raw=true"Title")
