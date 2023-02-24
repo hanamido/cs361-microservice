@@ -1,0 +1,8 @@
+#help-message {
+    width: 50%;
+    font-size: 1.5rem; 
+    justify-content: center; 
+    border: solid;
+    border-radius: 3px;
+    padding:10px;
+}
