@@ -1,15 +1,28 @@
-import express from 'express'; 
+import express from 'express';
 import bodyParser from 'body-parser'; 
 import 'dotenv/config';  
+import { engine } from 'express-handlebars'; 
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 import * as HelpMsgs from './HelpModel.mjs'; 
 
 const app = express(); 
-app.set('view engine', 'pug');
+// app.set('view engine', 'pug');
 const PORT = process.env.PORT || 3001; 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.engine('.hbs', engine({
+    defaultLayout: 'main',
+    layoutsDir: __dirname + '/views', 
+    extname: '.hbs',
+})); 
+app.set('view engine', '.hbs'); 
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended: true})); 
+app.use(express.static(path.join(__dirname, '/public'))); 
 
 app.listen(PORT, () => {
     console.log(`Help Microservice listening on port ${PORT}...`); 
@@ -22,15 +35,17 @@ app.use((err, req, res, next) => {
 }); 
 
 app.get('/', (req, res) => {
-    res.render('index', { title: "Help Microservice", start: "Begin with the following routes below:", message: "Routes supported: /add-help to add help messages, /get-all to view all help messages, and /id to get a specific help message."}); 
+    res.render('home', {  message: "Instructions: Add a new help message or view all help messages by clicking the buttons below, or navigate to /{id} to get a specific help message."}); 
 })
 
 // Add help messages to the db
 app.post('/add-help', (req, res) => {
-    HelpMsgs.createHelpMsg(req.body.helpMsg)
+    let data = req.body; 
+    let helpMsg = data['input-help-msg']; 
+    HelpMsgs.createHelpMsg(helpMsg)
     // if successful
     .then (helpMsg => {
-        res.status(201).json(helpMsg); 
+        res.redirect('/');
     })
     // else catch the error
     .catch(error => {
@@ -64,7 +79,7 @@ app.get('/:id', (req, res) => {
     .then(helpMsg => {
         if (helpMsg !== null) {  // if the help message exists
             // res.status(200).json(helpMsg); 
-            res.render('index', { title: 'Matching Help Message', message: helpMsg.helpMsg }); 
+            res.render('show-help', { message: helpMsg.helpMsg }); 
         } else {
             res.status(404).json({ Error: "Help message not found." }); 
         }

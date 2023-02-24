@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/hanamilktea/cs361-microservice#readme",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
     "handlebars": "^4.7.7",
+    "jade-bootstrap": "^1.0.14",
     "mongoose": "^6.9.1",
     "nodemon": "^2.0.20",
     "pug": "^3.0.2"
